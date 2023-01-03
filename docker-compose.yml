@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  # MySQL Service
+  db:
+    image: "mysql:8.0"
+    container_name: "demo_mysql"
+    ports:
+      - "44336:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "abc123"
+      MYSQL_DATABASE: "laravel"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "abc123"
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./.docker/mysql/mysql.cnf:/etc/mysql/mysql.cnf
+    networks:
+      - backend
+
+# Docker Networks
+networks:
+  backend:
+    driver: bridge
+
+# Docker Volumes
+volumes:
+  db:
+    name: "demo_data"
