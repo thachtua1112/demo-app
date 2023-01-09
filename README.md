@@ -33,3 +33,17 @@ DB_PASSWORD=abc123
 
 **Run Application:**
 - php artisan serve
+
+**Route API:**
+```JS
+- Login: POST http://127.0.0.1:8000/api/login
+    Header: {Accept: application/json}
+    Body: {
+        "email": laravel fake,
+        "password" "11111111"
+    }
+
+- Logout: POST http://127.0.0.1:8000/api/logout
+    Header: {Accept: application/json}
+    Authorization: Bearer Token
+```
